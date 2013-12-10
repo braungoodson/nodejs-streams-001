@@ -1,4 +1,5 @@
-var f = require('fs');
+/*
+ * var f = require('fs');
 var fileToReadFrom = './readMe.data';
 var fileToWriteTo = './writeToMe.data';
 var r = f.createReadStream(fileToReadFrom);
@@ -11,4 +12,13 @@ r.on('error',function(e){
 });
 w.on('error',function(e){
   console.log(e);
+});*/
+
+var f = require('fs');
+var h = require('http');
+var v = h.createServer(function(q,r){
+  var s = f.createReadStream('/dev/random');
+  // `pipe()` redirects s into r
+  s.pipe(r);
 });
+v.listen(10000);
